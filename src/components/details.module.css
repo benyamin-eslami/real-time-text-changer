@@ -1,0 +1,19 @@
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-container {
+  margin: 3rem 0;
+  padding: 0;
+}
+.margin {
+  margin: 1rem;
+}
+.red {
+  color: red;
+}
+.blue {
+  color: blue;
+}
