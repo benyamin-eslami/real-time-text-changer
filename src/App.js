@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Card from "./components/Card";
+import DataContext from "./store/data-context";
 
 const App = () => {
   const [submitedForm, setForm] = useState([]);
@@ -54,25 +55,31 @@ const App = () => {
   };
   return (
     <React.Fragment>
-      <form onSubmit={formHandler}>
-        <label htmlFor="name">name</label>
-        <input
-          onChange={nameChangeHandler}
-          value={name}
-          id="name"
-          type="text"
-        />
-        <label htmlFor="age">age</label>
-        <input onChange={ageChangeHandler} value={age} id="age" type="number" />
-        <button type="submit">submit</button>
-      </form>
-      <Card
-        onNewName={newNameHandler}
-        onNewAge={newAgeHandler}
-        onGetData={deleteFunc}
-        data={submitedForm}
-      ></Card>
-      {/* <Card onGetData={deleteFunc} data={submitedForm}></Card> */}
+      <DataContext.Provider value={{ data: submitedForm }}>
+        <form onSubmit={formHandler}>
+          <label htmlFor="name">name</label>
+          <input
+            onChange={nameChangeHandler}
+            value={name}
+            id="name"
+            type="text"
+          />
+          <label htmlFor="age">age</label>
+          <input
+            onChange={ageChangeHandler}
+            value={age}
+            id="age"
+            type="number"
+          />
+          <button type="submit">submit</button>
+        </form>
+        <Card
+          onNewName={newNameHandler}
+          onNewAge={newAgeHandler}
+          onGetData={deleteFunc}
+        ></Card>
+        {/* <Card onGetData={deleteFunc} data={submitedForm}></Card> */}
+      </DataContext.Provider>
     </React.Fragment>
   );
 };

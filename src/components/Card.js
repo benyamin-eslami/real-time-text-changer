@@ -17,7 +17,6 @@ function Card(props) {
         onInputAgeChange={inputAgeChangeHandler}
         onInputNameChange={inputNameChangeHandler}
         onGetId={getId}
-        data={props.data}
       ></Detail>
     </React.Fragment>
   );

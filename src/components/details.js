@@ -1,8 +1,11 @@
 import styles from "./details.module.css";
+import { useContext } from "react";
+import DataContext from "../store/data-context";
 function Detail(props) {
+  const ctx = useContext(DataContext);
   return (
     <ul className={styles["list-container"]}>
-      {props.data.map((obj) => {
+      {ctx.data.map((obj) => {
         return (
           <li className={(styles.margin, styles.list)} key={obj.id}>
             <p className={styles.margin}>
